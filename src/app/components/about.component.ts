@@ -26,7 +26,7 @@ export class AboutComponent {
   }
 
   login() {
-    this.hello = "tushigg";
+    this.hello = "tushig";
   }
 }
 
