@@ -40,7 +40,7 @@ export class UserComponent {
       name: 'admin'
     }
 
-    this.userService.getUsers().subscribe(users => {
+    this.userService.getAllUsers().subscribe(users => {
       console.log(users)
       this.users = users;
     });

@@ -1,0 +1,12 @@
+<div>
+  <form>
+    <label>E-Mail:</label><br>
+    <input type="text" #email (keyup)="onKeyUp(email.value, password.value)">
+    <p>{{email.value}}</p>
+    <!--<br>-->
+    <label>Password:</label><br>
+    <input type="password" #password (keyup)="onKeyUp(email.value, password.value)">
+    <p>{{password.value}}</p>
+    <button type="submit" (click)="loginRequest()">Log In</button>
+  </form>
+</div>
