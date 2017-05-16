@@ -1,12 +1,41 @@
 <div>
   <form>
     <label>E-Mail:</label><br>
-    <input type="text" #email (keyup)="onKeyUp(email.value, password.value)">
+    <input type="text" #email (keyup)="onLoginKeyUp(email.value, password.value)">
     <p>{{email.value}}</p>
     <!--<br>-->
     <label>Password:</label><br>
-    <input type="password" #password (keyup)="onKeyUp(email.value, password.value)">
+    <input type="password" #password (keyup)="onLoginKeyUp(email.value, password.value)">
     <p>{{password.value}}</p>
     <button type="submit" (click)="loginRequest()">Log In</button>
+  </form>
+</div>
+
+
+<div>
+  <form>
+    <label>E-Mail:</label><br>
+    <input #regEmail><br>
+    <p>{{regEmail.value}}</p>
+    <label>Code:</label><br>
+    <input #regCode><br>
+    <p>{{regCode.value}}</p>
+    <label>First name:</label><br>
+    <input #regFirstName><br>
+    <label>Last name:</label><br>
+    <input #regLastName><br>
+    <label>Date of birth:</label><br>
+    <input #regDateOfBirth><br>
+    <select (change)="onDropDownChange($event.target.value)">
+      <option *ngFor="let role of roles" value="{{role.value}}">{{role.text}}</option>
+    </select><br>
+    <input type="radio" name="gender" value="male" #male (click)="onRadioClick(male.value)"> Male
+    <input type="radio" name="gender" value="female" #female (click)="onRadioClick(female.value)"> Female<br>
+    <label>password:</label><br>
+    <input #regPassword><br>
+    <label>password 2:</label><br>
+    <input #regPassword2><br>
+    <button (click)="registerRequest(regEmail.value, regCode.value, regFirstName.value,
+    regLastName.value, regDateOfBirth.value, regPassword.value)">Register</button>
   </form>
 </div>

@@ -17,7 +17,7 @@ import {Router, ActivatedRoute, Route} from "@angular/router";
 export class UserComponent {
 
   ngOnInit() {
-    localStorage.removeItem("currentUser");
+    // localStorage.removeItem("currentUser");
     console.log(localStorage.getItem("currentUser"));
     console.log(sessionStorage.getItem("currentUser"));
 
