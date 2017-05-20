@@ -28,6 +28,7 @@ export class UserService {
   apiLogin(email: String, password: String) {
     var json = JSON.stringify({email: email, password: password});
     var headers = new Headers();
+    console.log(json);
     headers.append('Content-Type', 'application/json');
     return this.http.post("http://localhost:8080/api/users/login", json, {
       headers: headers
