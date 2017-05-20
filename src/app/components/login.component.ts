@@ -5,7 +5,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 @Component({
   moduleId: module.id,
   selector: 'login',
-  templateUrl: '../templates/production/login.html',
+  templateUrl: '../production/login.html',
   providers: [UserService]
 })
 
