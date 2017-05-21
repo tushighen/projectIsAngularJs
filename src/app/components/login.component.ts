@@ -11,6 +11,8 @@ import {Router, ActivatedRoute} from "@angular/router";
 
 export class LoginComponent {
 
+  public checkModel:any = {left: false, middle: true, right: false};
+
   // Нэвтрэх хүсэлт явуулан буцаж ирэх мэссэжийг хадгалах объеът
   private loginMessage: loginMessage;
   // Нэвтрэх формын Email field-ийн утгыг авах хувьсагч
