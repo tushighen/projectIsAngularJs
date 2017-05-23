@@ -17,6 +17,25 @@ export class CreateComponent {
 
   // Хуудас ачааллахад хамгийн эхэнд ажиллах функц
   ngOnInit() {
-
+    console.log(localStorage.getItem('currentUser'));
   }
+}
+
+interface Poll {
+  pollId: number;
+  pollName: String;
+  questions: Question[];
+}
+
+interface Question {
+  questionId: number;
+  questionName: String;
+  questionDescription: String;
+  type: String;
+  optionChoices: OptionChoice[];
+}
+
+interface OptionChoice {
+  optionChoiceId: number;
+  choiceName: String;
 }

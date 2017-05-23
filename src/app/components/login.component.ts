@@ -11,7 +11,9 @@ import {Router, ActivatedRoute} from '@angular/router';
 
 export class LoginComponent {
 
-  public checkModel: any = {left: false, middle: true, right: false};
+  constructor(private userService: UserService,
+              private router: Router) {
+  }
 
   // Нэвтрэх хүсэлт явуулан буцаж ирэх мэссэжийг хадгалах объеът
   private loginMessage: LoginMessage;
@@ -23,6 +25,7 @@ export class LoginComponent {
   private gender: String;
   // Хэрэглэгчийн мэдээллийг хадгалах объект
   private user: User;
+
   // Хэрэглэгчийн Role-ийг хадгалах объект
   private userRole: UserRole;
 
@@ -31,10 +34,6 @@ export class LoginComponent {
     {text: 'Student', value: 2},
     {text: 'Teacher', value: 3},
   ];
-
-  constructor(private userService: UserService,
-              private router: Router) {
-  }
 
   // Хуудас ачааллахад хамгийн эхэнд ажиллах функц
   ngOnInit() {
@@ -51,7 +50,7 @@ export class LoginComponent {
         console.log(this.loginMessage.msg);
         console.log(this.loginMessage);
 
-        if (this.loginMessage.msg == 'Success') {
+        if (this.loginMessage.msg === 'Success') {
           localStorage.setItem('currentUser', JSON.stringify(this.loginEmail));
           sessionStorage.setItem('currentUser', JSON.stringify(this.loginEmail));
           this.router.navigate(['/login']);
