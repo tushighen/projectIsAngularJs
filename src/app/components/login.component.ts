@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {UserService} from "../services/user.service";
-import {Router, ActivatedRoute} from "@angular/router";
+import {UserService} from '../services/user.service';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -11,10 +11,10 @@ import {Router, ActivatedRoute} from "@angular/router";
 
 export class LoginComponent {
 
-  public checkModel:any = {left: false, middle: true, right: false};
+  public checkModel: any = {left: false, middle: true, right: false};
 
   // Нэвтрэх хүсэлт явуулан буцаж ирэх мэссэжийг хадгалах объеът
-  private loginMessage: loginMessage;
+  private loginMessage: LoginMessage;
   // Нэвтрэх формын Email field-ийн утгыг авах хувьсагч
   private loginEmail: String;
   // Нэвтрэх формын Password field-ийн утгыг авах хувьсагч
@@ -28,8 +28,8 @@ export class LoginComponent {
 
   // DropDown Menu дээр харагдах Text болон Id
   private roles = [
-    {text: "Student", value: 2},
-    {text: "Teacher", value: 3},
+    {text: 'Student', value: 2},
+    {text: 'Teacher', value: 3},
   ];
 
   constructor(private userService: UserService,
@@ -39,8 +39,8 @@ export class LoginComponent {
   // Хуудас ачааллахад хамгийн эхэнд ажиллах функц
   ngOnInit() {
     // localStorage.removeItem("currentUser");
-    console.log(localStorage.getItem("currentUser"));
-    console.log(sessionStorage.getItem("currentUser"));
+    console.log(localStorage.getItem('currentUser'));
+    console.log(sessionStorage.getItem('currentUser'));
   }
 
   // Нэвтрэх хүсэлт
@@ -51,9 +51,9 @@ export class LoginComponent {
         console.log(this.loginMessage.msg);
         console.log(this.loginMessage);
 
-        if (this.loginMessage.msg == "Success") {
-          localStorage.setItem("currentUser", JSON.stringify(this.loginEmail));
-          sessionStorage.setItem("currentUser", JSON.stringify(this.loginEmail));
+        if (this.loginMessage.msg == 'Success') {
+          localStorage.setItem('currentUser', JSON.stringify(this.loginEmail));
+          sessionStorage.setItem('currentUser', JSON.stringify(this.loginEmail));
           this.router.navigate(['/login']);
         }
       });
@@ -76,7 +76,7 @@ export class LoginComponent {
     console.log(this.user);
     this.userService.insertUser(this.user).subscribe(msg => {
       console.log(msg);
-    })
+    });
   }
 
   // Нэвтрэх формын нэр нууц үгийн event // TextBox: Email, Password
@@ -99,7 +99,7 @@ export class LoginComponent {
 }
 
 // LoginRequest явуулахад буцаж ирэх Message -ийн класс
-interface loginMessage {
+interface LoginMessage {
   msg: String;
 }
 
