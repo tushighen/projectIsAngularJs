@@ -15,16 +15,52 @@ export class CreateComponent {
               private router: Router) {
   }
 
+  poll: Poll;
+  questions: Question;
+  optionChoice: OptionChoice;
+  user: User;
+
   // Хуудас ачааллахад хамгийн эхэнд ажиллах функц
   ngOnInit() {
     console.log(localStorage.getItem('currentUser'));
-  }
+
+    this.poll = {
+      pollName: null,
+      questions: this.questions,
+      createdDate: null,
+      user: this.user,
+      active: true,
+      userRoleId: [
+        null
+      ]
+    };
+
+    this.questions = [{
+      questionId: null,
+      questionName: null,
+      questionDescription: null,
+      type: null,
+      optionChoices: this.optionChoices
+    }];
+
+    this.optionChoices = [{
+      optionChoiceId: null,
+      choiceName: null
+    }];
+
+    this.user = {
+      userId: 1
+    };
+  };
 }
 
 interface Poll {
-  pollId: number;
   pollName: String;
   questions: Question[];
+  createdDate: Date;
+  user: User;
+  active: boolean;
+  userRoleId: number[];
 }
 
 interface Question {
@@ -38,4 +74,8 @@ interface Question {
 interface OptionChoice {
   optionChoiceId: number;
   choiceName: String;
+}
+
+interface User {
+  userId: number;
 }

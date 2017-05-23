@@ -6,7 +6,7 @@ import {Router, ActivatedRoute, Route} from "@angular/router";
   selector: 'user',
   template: `
 <div *ngFor="let user of users">
-<h3>{{user.firstName}}, {{user.lastName}}, {{user.password}}, {{user.code}}, {{user.role}}, 
+<h3>{{user.id}}, {{user.firstName}}, {{user.lastName}}, {{user.password}}, {{user.code}}, {{user.role}}, 
 {{user.sex}}, {{user.dateOfBirth}}, {{user.id}}, {{user.email}}</h3>
 </div>
 `,
