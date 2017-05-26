@@ -1,7 +1,30 @@
+
+
 <div>
   <form>
-    <div *ngFor="">
-
+    <div>
+      <h3>Poll Name</h3>
+      <!--<input #pollName (keyup)="lol()">-->
+      <!--<p>{{pollName.value}}</p>-->
+      <button type="submit" (click)="addQuestion()">add question</button>
+      <div *ngFor="let question of poll.questions; let i = index">
+        <!--<p>{{question.questionName}}</p>-->
+        <h1>{{i}}</h1>
+        <h3>Question</h3>
+        <p>Question Name</p>
+        <input #qName><br>
+        <p>{{qName.value}}</p>
+        <p>Question Description</p>
+        <input #qDesc><br>
+        <p>Question Type</p>
+        <input #qType><br>
+        <!--<h3>Choice</h3>-->
+        <!--<div *ngFor="let optionChoice of question.optionChoices">-->
+          <!--<input #choiceName><br>-->
+          <!--<button (click)="addOptionChoice()">add choice</button>-->
+        <!--</div>-->
+      </div>
     </div>
   </form>
+  <button (click)="lool()">lol</button>
 </div>

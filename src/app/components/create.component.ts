@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -9,14 +9,14 @@ import {Router} from '@angular/router';
   providers: [UserService]
 })
 
-export class CreateComponent {
+export class CreateComponent implements OnInit {
 
   constructor(private userService: UserService,
               private router: Router) {
   }
 
   poll: Poll;
-  questions: Question;
+  question: Question;
   optionChoice: OptionChoice;
   user: User;
 
@@ -26,7 +26,9 @@ export class CreateComponent {
 
     this.poll = {
       pollName: null,
-      questions: this.questions,
+      questions: [
+        this.question
+      ],
       createdDate: null,
       user: this.user,
       active: true,
@@ -35,22 +37,49 @@ export class CreateComponent {
       ]
     };
 
-    this.questions = [{
+    this.question = {
       questionId: null,
-      questionName: null,
-      questionDescription: null,
+      questionName: 'asd',
+      questionDescription: 'asd',
       type: null,
-      optionChoices: this.optionChoices
-    }];
+      optionChoices: [
+        this.optionChoice
+      ]
+    };
 
-    this.optionChoices = [{
+    this.optionChoice = {
       optionChoiceId: null,
       choiceName: null
-    }];
+    };
 
     this.user = {
       userId: 1
     };
+  };
+
+  addOptionChoice() {
+    let optionChoice: OptionChoice;
+    optionChoice = {
+      optionChoiceId: null,
+      choiceName: null
+    };
+    this.question.optionChoices.push(optionChoice);
+    // console.log(optionChoice);
+    console.log(this.question.optionChoices);
+  };
+
+  addQuestion() {
+    let question: Question;
+    question = {
+      questionId: null,
+      questionName: null,
+      questionDescription: null,
+      type: null,
+      optionChoices: [
+        this.optionChoice
+      ]
+    };
+    this.poll.questions.push(question);
   };
 }
 
